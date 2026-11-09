@@ -325,13 +325,39 @@ a:hover { color: var(--accent); }
   .carousel { aspect-ratio: 16 / 10; }
   .car-nav { opacity: 1; width: 42px; height: 56px; }
 }
+
 @media (max-width: 700px) {
   body { font-size: 15.5px; }
-  html { scroll-padding-top: 128px; }
-  .header-inner { min-height: 60px; flex-wrap: wrap; row-gap: 6px; padding-block: 8px; }
-  .logo-text { font-size: 13px; letter-spacing: .16em; }
-  .nav { gap: 2px; flex-wrap: wrap; justify-content: flex-end; margin-left: auto; }
-  .nav-link { padding: 8px 8px; font-size: 13.5px; }
+  html { scroll-padding-top: 80px; } /* Уменьшили отступ для тонкой шапки */
+  
+  /* ШАПКА В ОДНУ ЛИНИЮ */
+  .header-inner { 
+    flex-wrap: nowrap; 
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center;
+    min-height: 56px; 
+  }
+  
+  .logo-text { font-size: 12px; letter-spacing: .1em; }
+  
+  .nav { 
+    gap: 4px; 
+    flex-wrap: nowrap;
+  }
+  
+  .nav-link { 
+    padding: 6px; 
+    font-size: 12px; 
+  }
+
+  /* ЦЕНА НА ТЕЛЕФОНЕ */
+  .hero-price {
+    font-size: 16px; /* Фиксируем нормальный размер */
+    margin-bottom: 30px;
+  }
+
+  /* Остальное без изменений */
   .hero { padding-top: 40px; }
   .hero-actions .btn { flex: 1 1 100%; }
   .lb-figure { padding: 58px 6px 96px; }
@@ -339,13 +365,16 @@ a:hover { color: var(--accent); }
   .lb-thumb { width: 58px; height: 42px; }
   .lb-bar { gap: 10px; }
 }
+
 @media (max-width: 430px) {
-  .nav-link { font-size: 12.5px; padding: 7px 6px; }
+  .nav-link { font-size: 11px; padding: 5px; } /* Еще чуть меньше для самых узких экранов */
+  .logo-text { font-size: 11px; }
   .carousel { aspect-ratio: 4 / 3; }
   .dot { width: 22px; height: 26px; }
   .dot::before { top: 9px; bottom: 9px; }
   .dot.is-on { width: 34px; }
 }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
@@ -353,7 +382,7 @@ a:hover { color: var(--accent); }
 }
 
 /* =========================================================================
-   СТРАХОВКА ОТ ГОРИЗОНТАЛЬНОЙ ПРОКРУТКИ НА МОБИЛЬНЫХ
+   СТРАХОВКА ОТ ГОРИЗОНТАЛЬНОЙ ПРОКРУТКИ
    ========================================================================= */
 html, body {
   overflow-x: hidden;
