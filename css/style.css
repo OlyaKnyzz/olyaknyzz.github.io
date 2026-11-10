@@ -171,7 +171,7 @@ a:hover { color: var(--accent); }
   justify-content: center; 
 }
 
-/* --- НОВЫЙ БЛОК С ТЕХНОЛОГИЯМИ --- */
+/* --- БЛОК С ТЕХНОЛОГИЯМИ (ИСПРАВЛЕНО) --- */
 .tech-stack {
   margin-top: 40px;
   display: flex;
@@ -188,11 +188,10 @@ a:hover { color: var(--accent); }
 }
 
 .tech-row img {
-  height: 60px;
-  width: auto;
-  max-width: 120px;
-  object-fit: contain;
-  background: #fff; /* Белый фон для темных картинок */
+  height: 60px;       /* Жесткая высота */
+  width: 60px;        /* Жесткая ширина (квадрат) */
+  object-fit: contain; /* Картинка вписывается, не искажаясь */
+  background: #fff; 
   padding: 8px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
@@ -383,8 +382,10 @@ a:hover { color: var(--accent); }
     margin-bottom: 30px;
   }
 
+  /* ИСПРАВЛЕНО НА ТЕЛЕФОНЕ */
   .tech-row img {
     height: 45px;
+    width: 45px; 
     padding: 5px;
   }
   .tech-row {
