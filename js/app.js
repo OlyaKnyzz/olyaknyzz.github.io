@@ -164,6 +164,7 @@ function buildCard(c, i) {
   </article>`;
 }
 
+// Вставляем карточки в контейнер #projects
 const projectsEl = document.getElementById('projects');
 projectsEl.innerHTML = CASES.map(buildCard).join('');
 document.getElementById('year').textContent = new Date().getFullYear();
@@ -334,3 +335,22 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     history.replaceState(null, '', a.getAttribute('href'));
   });
 });
+
+/* =========================================================================
+   ЛОГИКА ДЛЯ КНОПКИ "ПОСМОТРЕТЬ ПРИМЕРЫ РАБОТ"
+   ========================================================================= */
+const toggleBtn = document.getElementById('toggle-projects');
+const projectsWrapper = document.getElementById('projects-wrapper');
+
+if (toggleBtn && projectsWrapper) {
+  toggleBtn.addEventListener('click', () => {
+    // Показываем обертку (внутри которой заголовок и карточки)
+    projectsWrapper.style.display = 'block';
+    
+    // Скрываем саму кнопку
+    toggleBtn.style.display = 'none';
+    
+    // Плавно прокручиваем страницу к появившемуся блоку
+    projectsWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
