@@ -32,6 +32,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-wrap: break-word;
+  padding-top: 70px; /* Добавляем отступ, чтобы шапка не перекрывала контент */
 }
 body.no-scroll { overflow: hidden; }
 img { display: block; max-width: 100%; }
@@ -55,20 +56,25 @@ a:hover { color: var(--accent); }
 .btn--ghost { background: transparent; color: var(--muted); border-color: var(--line); }
 .btn--ghost:hover { color: var(--text); border-color: var(--accent); background: var(--accent-soft); }
 
+/* Кнопка "Посмотреть примеры работ" */
 .btn--large {
   font-size: 16px;
   padding: 16px 32px;
   width: 100%;
   max-width: 400px;
   display: block;
-  margin: 0 auto;
+  margin: 0 auto; /* Центрируем кнопку */
 }
 
 /* =========================================================================
    ШАПКА
    ========================================================================= */
 .site-header {
-  position: sticky; top: 0; z-index: 50;
+  position: fixed; /* Жестко фиксируем шапку */
+  top: 0; 
+  left: 0;
+  width: 100%;
+  z-index: 50;
   background: rgba(18, 18, 18, .82);
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
@@ -266,8 +272,8 @@ a:hover { color: var(--accent); }
    БЛОК ПОКАЗА ПРОЕКТОВ
    ========================================================================= */
 .show-projects-section {
-  padding-top: 0px;    /* Маленький отступ сверху, чтобы прижать кнопку к верхней линии */
-  padding-bottom: 60px; /* Нормальный отступ снизу до подвала */
+  padding-top: 40px;    
+  padding-bottom: 60px; 
   text-align: center;
 }
 
@@ -425,14 +431,13 @@ a:hover { color: var(--accent); }
   .carousel { aspect-ratio: 16 / 10; }
   .car-nav { opacity: 1; width: 42px; height: 56px; }
   
-  /* Карточки "Как я работаю" встают друг под другом */
   .work-grid {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 700px) {
-  body { font-size: 15.5px; }
+  body { font-size: 15.5px; padding-top: 60px; } /* Уменьшаем отступ для мобилки */
   html { scroll-padding-top: 80px; } 
   
   .header-inner { 
