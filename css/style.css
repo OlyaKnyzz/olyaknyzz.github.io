@@ -71,7 +71,14 @@ a:hover { color: var(--accent); }
 }
 .logo { display: inline-flex; align-items: center; gap: 10px; color: var(--text); }
 .logo:hover { color: var(--text); }
-.logo-text { font-size: 15px; font-weight: 800; letter-spacing: .22em; }
+
+/* ИСПРАВЛЕНИЕ ЛОГОТИПА: уменьшили letter-spacing, чтобы буквы не сплющивались */
+.logo-text { 
+  font-size: 15px; 
+  font-weight: 800; 
+  letter-spacing: .12em; /* Было .22em, стало .12em */
+}
+
 .nav { display: flex; align-items: center; gap: clamp(4px, 1.4vw, 14px); }
 .nav-link {
   position: relative; padding: 9px 12px; border-radius: 10px;
@@ -155,10 +162,11 @@ a:hover { color: var(--accent); }
   font-weight: 400;
 }
 
+/* ИСПРАВЛЕНИЕ ЦЕНЫ: сделали крупнее на ПК, но независимой от заголовка */
 .hero-price {
   color: var(--accent);
-  font-size: 0.65em; 
-  font-weight: 400;
+  font-size: clamp(18px, 2vw, 24px); /* На ПК теперь 24px, на телефоне ниже переопределим */
+  font-weight: 500;
   display: block;
   text-align: center;
   margin-bottom: clamp(24px, 3.4vw, 34px);
@@ -328,7 +336,7 @@ a:hover { color: var(--accent); }
 
 @media (max-width: 700px) {
   body { font-size: 15.5px; }
-  html { scroll-padding-top: 80px; } /* Уменьшили отступ для тонкой шапки */
+  html { scroll-padding-top: 80px; } 
   
   /* ШАПКА В ОДНУ ЛИНИЮ */
   .header-inner { 
@@ -339,7 +347,7 @@ a:hover { color: var(--accent); }
     min-height: 56px; 
   }
   
-  .logo-text { font-size: 12px; letter-spacing: .1em; }
+  .logo-text { font-size: 12px; letter-spacing: .1em; } /* Уменьшили для мобилки */
   
   .nav { 
     gap: 4px; 
@@ -353,7 +361,7 @@ a:hover { color: var(--accent); }
 
   /* ЦЕНА НА ТЕЛЕФОНЕ */
   .hero-price {
-    font-size: 16px; /* Фиксируем нормальный размер */
+    font-size: 16px; /* Фиксируем нормальный размер для мобилки */
     margin-bottom: 30px;
   }
 
@@ -367,7 +375,7 @@ a:hover { color: var(--accent); }
 }
 
 @media (max-width: 430px) {
-  .nav-link { font-size: 11px; padding: 5px; } /* Еще чуть меньше для самых узких экранов */
+  .nav-link { font-size: 11px; padding: 5px; } 
   .logo-text { font-size: 11px; }
   .carousel { aspect-ratio: 4 / 3; }
   .dot { width: 22px; height: 26px; }
