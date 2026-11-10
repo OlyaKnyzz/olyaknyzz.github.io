@@ -148,8 +148,9 @@ a:hover { color: var(--accent); }
   font-weight: 400; 
 }
 
+/* ВОЗВРАЩАЕМ УЗКИЙ ТЕКСТ (КАК НА ЭТАЛОНЕ) */
 .hero-lead {
-  max-width: 950px; 
+  max-width: 900px; /* Увеличили ширину */
   margin: 0 auto clamp(24px, 3.4vw, 34px);
   color: var(--muted);
   font-size: clamp(15px, 1.7vw, 18px);
@@ -222,8 +223,8 @@ a:hover { color: var(--accent); }
 
 .work-steps li {
   position: relative;
-  padding-left: 35px; /* Уменьшили отступ под кружки */
-  margin-bottom: 23px; /* Убрали треть пространства (было 35px) */
+  padding-left: 35px;
+  margin-bottom: 23px; 
   font-size: clamp(15px, 1.6vw, 17px);
   line-height: 1.7;
   color: #fff;
@@ -240,9 +241,9 @@ a:hover { color: var(--accent); }
   content: counter(custom-counter);
   position: absolute;
   left: 0;
-  top: 2px; /* Выровняли по тексту */
-  width: 20px; /* Уменьшили в 2 раза (было 30px) */
-  height: 20px; /* Уменьшили в 2 раза (было 30px) */
+  top: 2px;
+  width: 20px;
+  height: 20px;
   background: var(--accent);
   color: #fff;
   border-radius: 50%;
@@ -250,17 +251,19 @@ a:hover { color: var(--accent); }
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  font-size: 11px; /* Уменьшили шрифт под размер кружка */
+  font-size: 11px;
 }
 
+/* ДЕЛАЕМ ССЫЛКИ В ТЕКСТЕ СИНИМИ И БЕЗ ПОДЧЕРКИВАНИЯ */
 .work-steps a {
   color: var(--accent);
-  text-decoration: underline;
+  text-decoration: none; /* Убрали подчеркивание */
+  font-weight: 500; /* Сделали чуть жирнее для заметности */
   transition: color 0.2s ease;
 }
 
 .work-steps a:hover {
-  color: #fff;
+  color: #fff; /* При наведении становится белой */
 }
 
 /* НИЖНЯЯ ЧАСТЬ (ВЛЕВО) */
@@ -456,7 +459,6 @@ a:hover { color: var(--accent); }
     gap: 15px;
   }
 
-  /* Адаптация списка на телефоне */
   .how-i-work {
     text-align: left;
   }
