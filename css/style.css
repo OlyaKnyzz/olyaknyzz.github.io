@@ -71,13 +71,7 @@ a:hover { color: var(--accent); }
 }
 .logo { display: inline-flex; align-items: center; gap: 10px; color: var(--text); }
 .logo:hover { color: var(--text); }
-
-/* ИСПРАВЛЕНИЕ ЛОГОТИПА: уменьшили letter-spacing, чтобы буквы не сплющивались */
-.logo-text { 
-  font-size: 15px; 
-  font-weight: 800; 
-  letter-spacing: .12em; /* Было .22em, стало .12em */
-}
+.logo-text { font-size: 15px; font-weight: 800; letter-spacing: .12em; }
 
 .nav { display: flex; align-items: center; gap: clamp(4px, 1.4vw, 14px); }
 .nav-link {
@@ -162,10 +156,9 @@ a:hover { color: var(--accent); }
   font-weight: 400;
 }
 
-/* ИСПРАВЛЕНИЕ ЦЕНЫ: сделали крупнее на ПК, но независимой от заголовка */
 .hero-price {
   color: var(--accent);
-  font-size: clamp(18px, 2vw, 24px); /* На ПК теперь 24px, на телефоне ниже переопределим */
+  font-size: clamp(18px, 2vw, 24px); 
   font-weight: 500;
   display: block;
   text-align: center;
@@ -176,6 +169,33 @@ a:hover { color: var(--accent); }
 .hero-actions { 
   display: flex; flex-wrap: wrap; gap: 12px; 
   justify-content: center; 
+}
+
+/* --- НОВЫЙ БЛОК С ТЕХНОЛОГИЯМИ --- */
+.tech-stack {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.tech-row img {
+  height: 60px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  background: #fff; /* Белый фон для темных картинок */
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 /* НИЖНЯЯ ЧАСТЬ (ВЛЕВО) */
@@ -338,7 +358,6 @@ a:hover { color: var(--accent); }
   body { font-size: 15.5px; }
   html { scroll-padding-top: 80px; } 
   
-  /* ШАПКА В ОДНУ ЛИНИЮ */
   .header-inner { 
     flex-wrap: nowrap; 
     flex-direction: row; 
@@ -347,7 +366,7 @@ a:hover { color: var(--accent); }
     min-height: 56px; 
   }
   
-  .logo-text { font-size: 12px; letter-spacing: .1em; } /* Уменьшили для мобилки */
+  .logo-text { font-size: 12px; letter-spacing: .1em; } 
   
   .nav { 
     gap: 4px; 
@@ -359,13 +378,19 @@ a:hover { color: var(--accent); }
     font-size: 12px; 
   }
 
-  /* ЦЕНА НА ТЕЛЕФОНЕ */
   .hero-price {
-    font-size: 16px; /* Фиксируем нормальный размер для мобилки */
+    font-size: 16px; 
     margin-bottom: 30px;
   }
 
-  /* Остальное без изменений */
+  .tech-row img {
+    height: 45px;
+    padding: 5px;
+  }
+  .tech-row {
+    gap: 15px;
+  }
+
   .hero { padding-top: 40px; }
   .hero-actions .btn { flex: 1 1 100%; }
   .lb-figure { padding: 58px 6px 96px; }
