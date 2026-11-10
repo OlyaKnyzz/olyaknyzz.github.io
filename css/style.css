@@ -21,7 +21,14 @@
 }
 
 * { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 84px; }
+
+/* Убираем overflow-x у body, чтобы не ломать sticky */
+html { 
+  -webkit-text-size-adjust: 100%; 
+  scroll-behavior: smooth; 
+  scroll-padding-top: 84px; 
+  overflow-x: hidden; 
+}
 
 body {
   margin: 0;
@@ -32,7 +39,6 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-wrap: break-word;
-  padding-top: 70px; /* Добавляем отступ, чтобы шапка не перекрывала контент */
 }
 body.no-scroll { overflow: hidden; }
 img { display: block; max-width: 100%; }
@@ -56,24 +62,21 @@ a:hover { color: var(--accent); }
 .btn--ghost { background: transparent; color: var(--muted); border-color: var(--line); }
 .btn--ghost:hover { color: var(--text); border-color: var(--accent); background: var(--accent-soft); }
 
-/* Кнопка "Посмотреть примеры работ" */
 .btn--large {
   font-size: 16px;
   padding: 16px 32px;
   width: 100%;
   max-width: 400px;
   display: block;
-  margin: 0 auto; /* Центрируем кнопку */
+  margin: 0 auto;
 }
 
 /* =========================================================================
    ШАПКА
    ========================================================================= */
 .site-header {
-  position: fixed; /* Жестко фиксируем шапку */
+  position: sticky; /* Возвращаем sticky, так как убрали overflow с body */
   top: 0; 
-  left: 0;
-  width: 100%;
   z-index: 50;
   background: rgba(18, 18, 18, .82);
   backdrop-filter: blur(14px) saturate(140%);
@@ -229,7 +232,7 @@ a:hover { color: var(--accent); }
 
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+  grid-template-columns: repeat(3, 1fr); 
   gap: 20px;
 }
 
@@ -437,7 +440,7 @@ a:hover { color: var(--accent); }
 }
 
 @media (max-width: 700px) {
-  body { font-size: 15.5px; padding-top: 60px; } /* Уменьшаем отступ для мобилки */
+  body { font-size: 15.5px; }
   html { scroll-padding-top: 80px; } 
   
   .header-inner { 
@@ -500,12 +503,7 @@ a:hover { color: var(--accent); }
 /* =========================================================================
    СТРАХОВКА ОТ ГОРИЗОНТАЛЬНОЙ ПРОКРУТКИ
    ========================================================================= */
-html, body {
-  overflow-x: hidden;
-  width: 100%;
-  position: relative;
-}
-
+/* Убрали overflow-x: hidden у body, оставили только у html, чтобы не ломать sticky */
 * {
   min-width: 0;
 }
